@@ -8,11 +8,11 @@
 // ==/UserScript==
 
 (function() {
-  const proxyIP = window.injectProxyIP || 'otomatik';
-  const username = window.injectUsername || 'otomatik';
+  const proxyIP = window.injectProxyIP || 'IP alınamadı';
+  const username = window.injectUsername || 'kullanıcı yok';
+  const password = window.injectPassword || 'şifre yok';
   const timestamp = new Date().toLocaleTimeString('tr-TR');
 
-  // Bilgi kutusu
   const infoBox = document.createElement('div');
   infoBox.innerHTML = `
     <div style="
@@ -31,14 +31,14 @@
       ✅ Script aktif<br>
       🌐 Proxy IP: ${proxyIP}<br>
       👤 Kullanıcı: ${username}<br>
+      🔒 Şifre: ${password}<br>
       🕒 Zaman: ${timestamp}
     </div>
   `;
   document.body.appendChild(infoBox);
 
-  // BBCode export kutusu
   const bbcodeBox = document.createElement('textarea');
-  bbcodeBox.value = `[b]Giriş Başarılı[/b]\n[i]Proxy: ${proxyIP}[/i]\n[i]Kullanıcı: ${username}[/i]\n[i]Zaman: ${timestamp}[/i]`;
+  bbcodeBox.value = `[b]Giriş Başarılı[/b]\n[i]Proxy: ${proxyIP}[/i]\n[i]Kullanıcı: ${username}[/i]\n[i]Şifre: ${password}[/i]\n[i]Zaman: ${timestamp}[/i]`;
   bbcodeBox.style = `
     position:fixed;
     bottom:10px;
@@ -54,16 +54,15 @@
   `;
   document.body.appendChild(bbcodeBox);
 
-  // Mobil panel JSON export
   window.cansemaPanelData = {
     proxy: proxyIP,
     user: username,
+    pass: password,
     time: timestamp,
     status: 'başarılı',
     bbcode: bbcodeBox.value
   };
 
-  // Mobil panel veri çekme altyapısı
   window.addEventListener('message', (e) => {
     if (e.data === 'getCansemaData') {
       window.postMessage(window.cansemaPanelData, '*');
@@ -72,4 +71,3 @@
 
   console.log('✅ cansemaPanelData:', window.cansemaPanelData);
 })();
-
