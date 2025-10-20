@@ -8,8 +8,8 @@
 // ==/UserScript==
 
 (function() {
-  const proxyIP = window.injectProxyIP || '108.165.161.15:5756';
-  const username = window.injectUsername || 'aksakallı';
+  const proxyIP = window.injectProxyIP || 'otomatik';
+  const username = window.injectUsername || 'otomatik';
   const timestamp = new Date().toLocaleTimeString('tr-TR');
 
   // Bilgi kutusu
@@ -72,3 +72,4 @@
 
   console.log('✅ cansemaPanelData:', window.cansemaPanelData);
 })();
+
