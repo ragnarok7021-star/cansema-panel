@@ -1,4 +1,3 @@
-
 // ==UserScript==
 // @name can Arrival Time
 // @description Set the desired arrival time in Tribal Wars and the script will automatically send the attack
