@@ -17,7 +17,7 @@
   infoBox.innerHTML = `
     <div style="
       position:fixed;
-      top:10px;
+      bottom:10px;
       left:10px;
       background:#000;
       color:#0f0;
@@ -28,7 +28,6 @@
       box-shadow:0 0 5px #0f0;
       font-family:Arial, sans-serif;
     ">
-      ✅ Script aktif<br>
       🌐 Proxy IP: ${proxyIP}<br>
       👤 Kullanıcı: ${username}<br>
       🔒 Şifre: ${password}<br>
