@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cansema Panel
 // @namespace    http://tampermonkey.net/
-// @version      1.0
+// @version      1.1
 // @description  Proxy IP ve kullanıcı bilgisi gösterimi
 // @match        https://www.klanlar.org/*
 // @grant        none
