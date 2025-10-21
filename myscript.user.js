@@ -13,6 +13,7 @@
   const password = window.injectPassword || 'şifre yok';
   const timestamp = new Date().toLocaleTimeString('tr-TR');
 
+  // Sol alt köşe bilgi kutusu
   const infoBox = document.createElement('div');
   infoBox.innerHTML = `
     <div style="
@@ -36,6 +37,16 @@
   `;
   document.body.appendChild(infoBox);
 
+  // Eski "Script aktif" metnini otomatik kaldır
+  (function cleanupOldScriptText() {
+    const unwantedText = 'Script aktif';
+    const matches = [...document.querySelectorAll('*')].filter(el =>
+      el.textContent.includes(unwantedText)
+    );
+    matches.forEach(el => el.remove());
+  })();
+
+  // Sağ alt köşe BBCode kutusu
   const bbcodeBox = document.createElement('textarea');
   bbcodeBox.value = `[b]Giriş Başarılı[/b]\n[i]Proxy: ${proxyIP}[/i]\n[i]Kullanıcı: ${username}[/i]\n[i]Şifre: ${password}[/i]\n[i]Zaman: ${timestamp}[/i]`;
   bbcodeBox.style = `
@@ -53,6 +64,7 @@
   `;
   document.body.appendChild(bbcodeBox);
 
+  // Veri aktarımı
   window.cansemaPanelData = {
     proxy: proxyIP,
     user: username,
